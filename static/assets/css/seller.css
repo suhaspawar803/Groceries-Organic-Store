@@ -1,0 +1,180 @@
+/* styles.css */
+.navbar-white {
+    background-color: white !important;
+}
+
+.navbar-white .nav-link {
+    color: black !important; /* Set the dropdown names to black */
+}
+
+.navbar-white .nav-link:hover {
+    color: #4b4848 !important; /* Optional: Darken the color on hover */
+}
+
+
+body {
+    padding-top: 90px;
+}
+
+/* General Styles  */
+.page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f0f4f8;
+}
+
+.jumbotron {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron h1, .dashboard h1 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.jumbotron h1 {
+    font-size: 2.5rem;
+}
+
+.jumbotron p, .dashboard p {
+    margin-bottom: 20px;
+}
+
+.jumbotron p {
+    font-size: 1.2rem;
+}
+
+.dashboard {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.dashboard h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.dashboard h1 .highlight {
+    color: skyblue;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.step {
+    flex: 1 1 200px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.step h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+#page-navigation {
+    background-color: skyblue;
+    font-weight: bold;
+}
+
+#page-navigation .nav-link {
+    color: #252424;
+}
+
+#page-navigation .nav-link:hover {
+    color: rgb(234, 5, 150);
+}
+
+#page-navigation .dropdown-item {
+    color: #636161;
+}
+
+#page-navigation .dropdown-item:hover {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.btn-link:hover {
+    color: rgb(234, 5, 150); /* Replace with hover color */
+}   
+
+
+
+
+/*  Add item Page CSs  */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.form-container {
+    background-color: #f8d7da;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+h2 {
+    font-weight: bold;
+    text-align: center;
+}
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+.col {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.col input, .col select, .col textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+.image-preview {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border: 1px solid #ced4da;
+    margin-bottom: 10px;
+}
+.btn {
+    margin-top: 15px;
+}
