@@ -1,0 +1,479 @@
+
+
+
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Freshcery | Groceries Organic Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href= "https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href= "https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css">
+    <link href= "{% static 'assets/fonts/sb-bistro/sb-bistro.css' %}" rel="stylesheet" type="text/css">
+    <link href= "{% static 'assets/fonts/font-awesome/font-awesome.css' %}" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" media="all" href= "{% static 'assets/packages/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" media="all"
+        href= "{% static 'assets/packages/o2system-ui/o2system-ui.css' %}">
+    <link rel="stylesheet" type="text/css" media="all"
+        href= "{% static 'assets/packages/owl-carousel/owl-carousel.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href= "{% static 'assets/packages/cloudzoom/cloudzoom.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href= "{% static 'assets/packages/thumbelina/thumbelina.css' %}">
+    <link rel="stylesheet" type="text/css" media="all"
+        href= "{% static 'assets/packages/bootstrap-touchspin/bootstrap-touchspin.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href= "{% static 'assets/css/theme.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href= "{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href= "{% static 'assets/css/seller.css' %}">
+
+
+<style>
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+    }
+    .form-container {
+        background-color: #f8d7da;
+        padding: 30px;
+        border-radius: 10px;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1200px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    h2 {
+        font-weight: bold;
+        text-align: center;
+    }
+    .form-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+    }
+    .col {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+    .col input, .col select, .col textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+    .image-preview {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        object-fit: cover;
+        border: 1px solid #ced4da;
+        margin-bottom: 10px;
+    }
+    .btn {
+        margin-top: 15px;
+    }
+</style>
+</head>
+
+<body>
+                <!--=============== Navbar ===============-->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar-white" id="page-navigation">
+            <div class="container">
+                <!-- Navbar Brand -->
+                <a href="{%url 'loginpage'%}" class="navbar-brand">
+                    <img src="{% static 'assets/img/logo/logo.png' %}" alt="Freshcery Logo" height="40">
+                </a>
+
+                <!-- Search Bar -->
+                <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for products, brands and more"
+                        aria-label="Search" style="width: 300px;">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                            class="fa fa-search"></i></button>
+                </form>
+
+                <!-- Toggle Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarcollapse">
+                    <!-- Navbar Menu -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="categoriesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fa fa-home"></i>Home</a>
+                            <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                                <a class="dropdown-item" href="{%url 'sellerpage' %}">Home</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="offersDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fa fa-users"></i>About Us</a>
+                            <div class="dropdown-menu" aria-labelledby="offersDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">About Us</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="registerDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-shopping-cart"></i> Sell Online</a>
+                            <div class="dropdown-menu" aria-labelledby="registerDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">List Product</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">List Users</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Receive Payment</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Help & Support</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="loginDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-credit-card"></i> Fees </a>
+                            <div class="dropdown-menu" aria-labelledby="loginDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="contactDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-envelope"></i> Contact Us</a>
+                            <div class="dropdown-menu" aria-labelledby="contactDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Customer Service</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Support</a>
+                            </div>
+                        </li>
+
+
+                         <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="cartDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-user-plus"></i> Profile</a>
+                            <div class="dropdown-menu" aria-labelledby="cartDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Profile</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="container form-container">
+            <h2>Items Registration</h2>
+            <button type="button" class="btn btn-success add-item-btn">Add Item</button>
+            <form action="{% url 'addItem' %}" id="ItemForm" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% endif %}
+                <div id="itemRows">
+                    <div class="form-row mb-3 item-row">
+                        <div class="col">
+                            <label for="itemImage">Item Image</label>
+                            <img src="#" class="image-preview" alt="Item Image Preview" style="display:none;">
+                            <input type="file" class="form-control" name="itemImage[]" accept="image/*" onchange="previewImage(this)" required>
+                        </div>                                           
+                        <div class="col">
+                            <label for="itemName">Item Name</label>
+                            <input type="text" class="form-control" name="itemName[]" placeholder="Enter item name" required>
+                        </div>
+                        <div class="col">
+                            <label for="itemCategory">Category</label>
+                            <select class="form-control" name="itemCategory[]" required>
+                                <option value="">Select category</option>
+                                <option value="Fashion">Fashion</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Home & Furniture">Home & Furniture</option>
+                                <option value="Appliances">Appliances</option>
+                                <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                                <option value="Sports, Books & More">Sports, Books & More</option>
+                                <option value="Grocery">Grocery</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="itemSubCategory">SubCategory</label>
+                            <select class="form-control itemSubCategory" name="itemSubCategory[]" required>
+                                <option value="">Select subcategory</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="itemTypeCategory">TypeCategory</label>
+                            <select class="form-control itemTypeCategory" name="itemTypeCategory[]" required>
+                                <option value="">Select type category</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="itemDescription">Description</label>
+                            <textarea class="form-control" name="itemDescription[]" rows="2" placeholder="Enter description"></textarea>
+                        </div>
+                        <div class="col">
+                            <label for="itemPrice">Price</label>
+                            <input type="number" class="form-control" name="itemPrice[]" placeholder="Enter price" required>
+                        </div>
+                        <!-- <div class="col">
+                            <label for="itemPrice">Orignal Price</label>
+                            <input type="number" class="form-control" name="itemogprice[]" placeholder="Enter price" required>
+                        </div> -->
+                        <div class="col">
+                            <label for="itemDiscount">Discount</label>
+                            <input type="number" class="form-control" name="itemDiscount[]" placeholder="Enter discount" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+        
+        <script type="text/javascript" src="{% static 'assets/js/jquery.js' %}"></script>
+        <script type="text/javascript" src="{% static 'assets/packages/bootstrap/bootstrap.js' %}"></script>
+        
+        <script>
+            const categoryData = {
+                "Fashion": {
+                    "subcategories": ["Clothing", "Footwear", "Watches", "Accessories"],
+                    "typecategories": {
+                        "Clothing": ["Men's Clothing", "Women's Clothing", "Kids' Clothing"],
+                        "Footwear": ["Men's Footwear", "Women's Footwear", "Kids' Footwear"],
+                        "Watches": ["Men's Watches", "Women's Watches"],
+                        "Accessories": ["Bags", "Belts", "Jewelry", "Sunglasses"]
+                    }
+                },
+                "Electronics": {
+                    "subcategories": ["Mobiles", "Laptops", "Cameras", "Televisions", "Audio"],
+                    "typecategories": {
+                        "Mobiles": ["Smartphones", "Feature Phones"],
+                        "Laptops": ["Gaming Laptops", "Ultrabooks", "2-in-1 Laptops"],
+                        "Cameras": ["DSLR", "Mirrorless", "Action Cameras"],
+                        "Televisions": ["LED", "OLED", "QLED"],
+                        "Audio": ["Headphones", "Speakers", "Earbuds"]
+                    }
+                },
+                "Home & Furniture": {
+                    "subcategories": ["Furniture", "Home Decor", "Lighting"],
+                    "typecategories": {
+                        "Furniture": ["Sofas", "Beds", "Dining Tables"],
+                        "Home Decor": ["Wall Art", "Vases", "Clocks"],
+                        "Lighting": ["Ceiling Lights", "Table Lamps", "Outdoor Lighting"]
+                    }
+                },
+                "Appliances": {
+                    "subcategories": ["Washing Machines", "Refrigerators", "Air Conditioners", "Kitchen Appliances"],
+                    "typecategories": {
+                        "Washing Machines": ["Front Load", "Top Load", "Semi Automatic"],
+                        "Refrigerators": ["Single Door", "Double Door", "Side by Side"],
+                        "Air Conditioners": ["Split AC", "Window AC", "Portable AC"],
+                        "Kitchen Appliances": ["Microwaves", "Ovens", "Toasters"]
+                    }
+                },
+                "Beauty & Personal Care": {
+                    "subcategories": ["Makeup", "Hair Care", "Skin Care", "Fragrances"],
+                    "typecategories": {
+                        "Makeup": ["Face", "Eyes", "Lips"],
+                        "Hair Care": ["Shampoo", "Conditioner", "Hair Oil"],
+                        "Skin Care": ["Moisturizers", "Cleansers", "Sunscreen"],
+                        "Fragrances": ["Perfumes", "Deodorants"]
+                    }
+                },
+                "Sports, Books & More": {
+                    "subcategories": ["Sports Equipment", "Books", "Stationery"],
+                    "typecategories": {
+                        "Sports Equipment": ["Cricket", "Football", "Badminton"],
+                        "Books": ["Fiction", "Non-fiction", "Educational"],
+                        "Stationery": ["Pens", "Notebooks", "Calculators"]
+                    }
+                },
+                "Grocery": {
+                    "subcategories": ["Fruits & Vegetables", "Dairy & Bakery", "Beverages"],
+                    "typecategories": {
+                        "Fruits & Vegetables": ["Fresh Fruits", "Fresh Vegetables"],
+                        "Dairy & Bakery": ["Milk", "Cheese", "Bread"],
+                        "Beverages": ["Tea", "Coffee", "Juices"]
+                    }
+                }
+            };
+        
+            function updateSubcategoriesAndTypes(categorySelect) {
+                const selectedCategory = categorySelect.value;
+                const subCategorySelect = categorySelect.closest('.form-row').querySelector('.itemSubCategory');
+                const typeCategorySelect = categorySelect.closest('.form-row').querySelector('.itemTypeCategory');
+        
+                subCategorySelect.innerHTML = '<option value="">Select subcategory</option>';
+                typeCategorySelect.innerHTML = '<option value="">Select type category</option>';
+        
+                if (selectedCategory && categoryData[selectedCategory]) {
+                    categoryData[selectedCategory]["subcategories"].forEach(subCategory => {
+                        const option = document.createElement('option');
+                        option.value = subCategory;
+                        option.textContent = subCategory;
+                        subCategorySelect.appendChild(option);
+                    });
+                }
+            }
+        
+            function updateTypeCategories(subCategorySelect) {
+                const selectedSubCategory = subCategorySelect.value;
+                const categorySelect = subCategorySelect.closest('.form-row').querySelector('select[name="itemCategory[]"]');
+                const selectedCategory = categorySelect.value;
+                const typeCategorySelect = subCategorySelect.closest('.form-row').querySelector('.itemTypeCategory');
+        
+                typeCategorySelect.innerHTML = '<option value="">Select type category</option>';
+        
+                if (selectedSubCategory && categoryData[selectedCategory]["typecategories"][selectedSubCategory]) {
+                    categoryData[selectedCategory]["typecategories"][selectedSubCategory].forEach(typeCategory => {
+                        const option = document.createElement('option');
+                        option.value = typeCategory;
+                        option.textContent = typeCategory;
+                        typeCategorySelect.appendChild(option);
+                    });
+                }
+            }
+        
+            document.addEventListener('change', function(e) {
+                if (e.target.matches('select[name="itemCategory[]"]')) {
+                    updateSubcategoriesAndTypes(e.target);
+                } else if (e.target.matches('.itemSubCategory')) {
+                    updateTypeCategories(e.target);
+                }
+            });
+        
+            document.querySelector('.add-item-btn').addEventListener('click', function() {
+                var itemRows = document.getElementById('itemRows');
+                var newItemRow = document.querySelector('.item-row').cloneNode(true);
+        
+                var inputs = newItemRow.querySelectorAll('input, select, textarea');
+                inputs.forEach(function(input) {
+                    input.value = '';
+                    input.classList.remove('is-invalid');
+                });
+        
+                newItemRow.querySelector('.image-preview').style.display = 'none';
+                itemRows.appendChild(newItemRow);
+            });
+        
+            function previewImage(input) {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    const preview = input.closest('.col').querySelector('.image-preview');
+                    reader.onload = function(e) {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        </script>
+
+<br>  <br>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>About</h5>
+                    <p>Nisi esse dolor irure dolor eiusmod ex deserunt proident cillum eu qui enim occaecat sunt aliqua
+                        anim eiusmod qui ut voluptate.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Links</h5>
+                    <ul>
+                        <li>
+                            <a href="about.html">About</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="faq.html">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">How it Works</a>
+                        </li>
+                        <li>
+                            <a href="terms.html">Terms</a>
+                        </li>
+                        <li>
+                            <a href="privacy.html">Privacy Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li>
+                            <a href="tel:+620892738334"><i class="fa fa-phone"></i> 08272367238</a>
+                        </li>
+                        <li>
+                            <a href="mailto:hello@domain.com"><i class="fa fa-envelope"></i> hello@domain.com</a>
+                        </li>
+                    </ul>
+
+                    <h5>Follow Us</h5>
+                    <ul class="social">
+                        <li>
+                            <a href="javascript:void(0)" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Get Our App</h5>
+                    <ul class="mb-0">
+                        <li class="download-app">
+                            <a href="{%url 'loginpage'%}"><img src="{% static 'assets/img/playstore.png' %}"></a>
+                        </li>
+                        <li style="height: 200px">
+                            <div class="mockup">
+                                <img src="{% static 'assets/img/mockup.png' %}">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2018 Freshcery | Groceries Organic Store. All rights reserved.</p>
+    </footer>
+
+    <script type="text/javascript" src="{% static 'assets/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery-migrate.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/packages/bootstrap/libraries/popper.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/packages/bootstrap/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/packages/o2system-ui/o2system-ui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/packages/owl-carousel/owl-carousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/packages/cloudzoom/cloudzoom.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/packages/thumbelina/thumbelina.js' %}"></script>
+    <script type="text/javascript"
+        src="{% static 'assets/packages/bootstrap-touchspin/bootstrap-touchspin.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/theme.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/app.js' %}"></script>
+</body>
+
+</html>
