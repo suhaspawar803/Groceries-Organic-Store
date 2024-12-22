@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer/Seller Registration with OTP Verification</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/css/style.css' %}">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="#" class="active" id="customer-form-link">Customer Register</a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="#" id="seller-form-link">Seller Register</a>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!-- Customer Register Form -->
+                            <form id="customer-form" action="{% url 'register' %}" method="post" role="form" style="display: block;">
+                                {% csrf_token %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <h2 style="color:red"> {{ msg }} </h2>
+
+                                <div class="form-group">
+                                    <label for="customer_name">Customer Name</label>
+                                    <input type="text" name="name" id="customer_name" class="form-control" placeholder="Enter your name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer_email">Email</label>
+                                    <input type="email" name="email" id="customer_email" class="form-control" placeholder="Enter your email" required>
+                                    <button id="verify-customer-email" class="btn btn-primary" type="button" style="margin-top: 10px;">Verify Email</button>
+                                </div>
+
+                                <div class="form-group" id="customer-otp-field" style="display: none;">
+                                    <label for="customer_otp">Enter OTP</label>
+                                    <input type="text" name="otp" id="customer_otp" class="form-control" placeholder="Enter the OTP sent to your email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer_mobile_number">Mobile Number</label>
+                                    <input type="text" name="mobile_number" id="customer_mobile_number" class="form-control" placeholder="Enter your mobile number" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="customer_password">Password</label>
+                                    <input type="password" name="password" id="customer_password" class="form-control" placeholder="Enter your password" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirm_customer_password">Confirm Password</label>
+                                    <input type="password" name="cpassword" id="confirm_customer_password" class="form-control" placeholder="Confirm your password" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <input type="submit" name="register-submit" id="register-submit" class="btn btn-success" value="Register as Customer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!-- Seller Register Form -->
+                            <form id="seller-form" action="{% url 'sellerregister' %}" method="post" role="form" style="display: none;">
+                                {% csrf_token %}
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <h2 style="color:red"> {{ msg }} </h2>
+
+                                <div class="form-group">
+                                    <label for="seller_name">Seller Name</label>
+                                    <input type="text" name="seller_name" id="seller_name" class="form-control" placeholder="Enter your name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mall_name">Mall Name</label>
+                                    <input type="text" name="shop_name" id="mall_name" class="form-control" placeholder="Enter your mall name" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="seller_email">Email</label>
+                                    <input type="email" name="email" id="seller_email" class="form-control" placeholder="Enter your email" required>
+                                    <button id="verify-seller-email" class="btn btn-primary" type="button" style="margin-top: 10px;">Verify Email</button>
+                                </div>
+
+                                <div class="form-group" id="seller-otp-field" style="display: none;">
+                                    <label for="seller_otp">Enter OTP</label>
+                                    <input type="text" name="otp" id="seller_otp" class="form-control" placeholder="Enter the OTP sent to your email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="gst_number">GST Number</label>
+                                    <input type="text" name="gst" id="gst_number" class="form-control" minlength="15" placeholder="Enter your GST number" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="seller_password">Password</label>
+                                    <input type="password" name="password" id="seller_password" class="form-control" placeholder="Enter your password" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="confirm_seller_password">Confirm Password</label>
+                                    <input type="password" name="cpassword" id="confirm_seller_password" class="form-control" placeholder="Confirm your password" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <input type="submit" name="register-submit" id="register-submit" class="btn btn-success" value="Register as Seller">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="{% static 'assets/js/script.js' %}"></script>
+
+</body>
+</html>
+{% endblock %}

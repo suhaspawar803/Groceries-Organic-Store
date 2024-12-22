@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="page-content" class="page-content">
+        <div class="banner">
+            <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('{% static 'assets/img/RegisterBackgroud.jpg' %}');">
+                <div class="container">
+                    <h1 class="pt-5">Register Page</h1>
+                    <div class="card card-login mb-5">
+                        <div class="card-body">
+                            <form class="form-horizontal" action="{% url 'resetpassword' %}" method="post">
+                                {% csrf_token %}
+                                {% if messages %}   
+                                    {% for message in messages %}
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ message }}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            
+                              
+                            
+                                <div class="form-group row mt-3">
+                                    <div class="col-md-8">
+                                        <input class="form-control" type="email" name="email" id="email"  placeholder="Email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address.">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="javascript:void(0);" class="btn btn-secondary btn-block" id="verify-email">Verify Email</a>
+                                    </div>
+                                </div>
+                            
+                                <!-- OTP input field, initially hidden -->
+                                <div class="form-group row mt-3" id="otp-field" style="display:none;">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="text"  required="" name="email_otp" id="email_otp" placeholder="Enter OTP">
+                                    </div>
+                                </div>
+                                
+                              
+                            
+                                <div class="form-group row mt-3">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="password" name="password"  placeholder="New Password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$" title="Password must be at least 5 characters long, contain at least one letter, one number, and one special character.">
+                                    </div>
+                                </div>
+                            
+                                <div class="form-group row mt-3">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="password" name="cpassword" required="" placeholder="Re-Password">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-lg btn-block mt-4" type="submit">Set Password</button>
+                            
+                             
+                            </form>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+</body>
+</html>
+{% endblock%}

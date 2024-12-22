@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Freshcery | Groceries Organic Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css">
+    <link href="{% static 'assets/fonts/sb-bistro/sb-bistro.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/fonts/font-awesome/font-awesome.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/packages/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" media="all"
+        href="{% static 'assets/packages/o2system-ui/o2system-ui.css' %}">
+    <link rel="stylesheet" type="text/css" media="all"
+        href="{% static 'assets/packages/owl-carousel/owl-carousel.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/packages/cloudzoom/cloudzoom.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/packages/thumbelina/thumbelina.css' %}">
+    <link rel="stylesheet" type="text/css" media="all"
+        href="{% static 'assets/packages/bootstrap-touchspin/bootstrap-touchspin.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/css/theme.css' %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static 'assets/css/style.css' %}">
+</head>
+
+<body>
+        <!--=============== Navbar ===============-->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar-white" id="page-navigation">
+            <div class="container">
+                <!-- Navbar Brand -->
+                <a href="{%url 'loginpage'%}" class="navbar-brand">
+                    <img src="{% static 'assets/img/logo/logo.png' %}" alt="Freshcery Logo" height="40">
+                </a>
+
+                <!-- Search Bar -->
+                <form class="form-inline my-2 my-lg-0 mx-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for products, brands and more"
+                        aria-label="Search" style="width: 300px;">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                            class="fa fa-search"></i></button>
+                </form>
+
+                <!-- Toggle Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarcollapse">
+                    <!-- Navbar Menu -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="categoriesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fa fa-home"></i>Home</a>
+                            <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                                <a class="dropdown-item" href="{%url 'sellerpage' %}">Home</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="offersDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                class="fa fa-users"></i>About Us</a>
+                            <div class="dropdown-menu" aria-labelledby="offersDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">About Us</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="registerDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-shopping-cart"></i> Sell Online</a>
+                            <div class="dropdown-menu" aria-labelledby="registerDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">List Product</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">List Users</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Receive Payment</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Help & Support</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="loginDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-credit-card"></i> Fees </a>
+                            <div class="dropdown-menu" aria-labelledby="loginDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">abc</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="contactDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fa fa-envelope"></i> Contact Us</a>
+                            <div class="dropdown-menu" aria-labelledby="contactDropdown">
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Customer Service</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Support</a>
+                            </div>
+                        </li>
+
+
+                         <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="{%url 'loginpage'%}" id="cartDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-plus"></i> Profile</a>
+                            <div class="dropdown-menu" aria-labelledby="cartDropdown">
+                                <a class="dropdown-item" href="{% url 'sellerprofile' pk=request.session.id %}">Profile</a>
+                                <a class="dropdown-item" href="{%url 'loginpage'%}">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron jumbotron-bg text-center rounded-0"
+            style="background-image: url('{% static 'assets/img/RegisterBackgroud.jpg' %}')">
+            <section id="checkout">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xs-12 col-sm-6">
+                            <center>
+                                <h5 class="mb-3">SELLER DETAILS</h5>
+                            </center> 
+                            <br>
+                          
+                            <form class="bill-detail" action="{% url 'updateSellerprofile' user.pk %}" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+                                {% csrf_token %}
+                                <fieldset>
+                                    <div class="form-group row">
+                                        <label for="name" style="color: black; font-weight: bold; margin-right: 1px; display: inline-block; width: 150px;">Seller Name</label>
+                                        <div class="col">
+                                            <input id="name" class="form-control" placeholder="Seller Name" name="name" value="{{ user.name }}" type="text" pattern="[A-Z][a-zA-Z ]+" required>
+                                        </div>  
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="shopname" style="color: black; font-weight: bold; margin-right: 1px; display: inline-block; width: 150px;">Shop Name</label>
+                                        <div class="col">
+                                            <input id="shopname" class="form-control" placeholder="Shop Name" name="shopname" value="{{ seller.shop_name }}" type="text" pattern="[A-Z][a-zA-Z ]+" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="email" style="color: black; font-weight: bold; margin-right: 1px; display: inline-block; width: 150px;">Email Address</label>
+                                        <div class="col">
+                                            <input id="email" class="form-control" placeholder="Email Address" type="email" name="email" value="{{ user.email }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="GST" style="color: black; font-weight: bold; margin-right: 1px; display: inline-block; width: 150px;">GST No</label>
+                                        <div class="col">
+                                            <input id="GST" class="form-control" placeholder="GST No" name="GST" value="{{ seller.gst }}" type="text" minlength="15" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="SCode" style="color: black; font-weight: bold; margin-right: 1px; display: inline-block; width: 150px;">Seller Code</label>
+                                        <div class="col">
+                                            <input id="SCode" class="form-control" placeholder="Seller Code" name="SCode" value="{{ seller.seller_code }}" type="text" minlength="20" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="mobile_number" style="color: black; font-weight: bold; margin-right: 1px; display: inline-block; width: 150px;">Phone Number</label>
+                                        <div class="col">
+                                            <input id="mobile_number" class="form-control" placeholder="Phone Number" type="tel" name="mobile_number" minlength="10" value="{{ user.mobile_number }}" pattern="^\+?[0-9\s\-\(\)]+$" title="Please enter a valid phone number" required>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="form-group text-right">
+                                        <center><button class="btn btn-primary" type="submit">Update</button></center>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            
+                            
+                            
+                            
+                            <!-- Bill Detail of the Page end -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    
+    <script src="{% static 'assets/packages/jquery/jquery.js' %}"></script>
+    <script src="{% static 'assets/packages/popper/popper.js' %}"></script>
+    <script src="{% static 'assets/packages/bootstrap/bootstrap.js' %}"></script>
+    <script src="{% static 'assets/packages/o2system-ui/o2system-ui.js' %}"></script>
+    <script src="{% static 'assets/packages/owl-carousel/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/packages/cloudzoom/cloudzoom.js' %}"></script>
+    <script src="{% static 'assets/packages/thumbelina/thumbelina.js' %}"></script>
+    <script src="{% static 'assets/packages/bootstrap-touchspin/bootstrap-touchspin.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/js/style.js' %}"></script>
+</body>
+
+</html>
