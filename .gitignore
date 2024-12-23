@@ -1,1 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
 myvenv/
+ENV/
+env.bak/
+*.egg-info/
+dist/
+build/
+
+
+# Django specific
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+*.dat
+*.db
+*.bak
+
+# Media files
+media/
+
+# Static files
+staticfiles/
+
+# Local settings
+local_settings.py
+
+# Secrets
+secrets.json
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# MacOS
+.DS_Store
+
+# Linux
+*.swp
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Test coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+
+# Celery
+celerybeat-schedule
+
+# Environments
+.env
+*.env
+
+# Docker
+*.stackdump
+*.dockerignore
+docker-compose.override.yml
+
+# Git
+.git/
